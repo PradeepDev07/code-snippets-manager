@@ -1,10 +1,11 @@
 # Code Snippet Manager Server
-
+# this was genarated by me through AI for backend referance when creating the front-end
 This is the backend server for the Code Snippet Manager application. It provides a RESTful API for managing code snippets, user authentication, and searching.
 
 ## Table of Contents
 
 - [Code Snippet Manager Server](#code-snippet-manager-server)
+- [this was genarated by me through AI for backend referance when creating the front-end](#this-was-genarated-by-me-through-ai-for-backend-referance-when-creating-the-front-end)
   - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
