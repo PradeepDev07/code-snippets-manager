@@ -22,13 +22,13 @@ const App = () => {
         <Route path="/noauth-explore" element={<Explore />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SignupForm />} />
-          
+
         <Route element={<AuthProtectedRoute />} >
           <Route path="/dashboard" element={<Dashboardpage />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/tags/:tag" element={<TagsPage />} />
           <Route path="/editor" element={<CodeEditor />} />
-          
+
           <Route path="*" element={<div className="min-h-screen flex items-center justify-center text-3xl font-bold">404 - Page Not Found</div>} />
 
         </Route>

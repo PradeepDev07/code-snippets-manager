@@ -5,22 +5,22 @@ import { FaCode, FaLayerGroup, FaSearch, FaStar } from 'react-icons/fa';
 import Cookies from "js-cookies"
 
 const Home = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   //if user is logged in, redirect to dashboard
   useEffect(() => {
-   
+
     const token = Cookies.getItem('token');
     if (token) {
       navigate('/dashboard', { replace: true });
     }
   }, []);
-  
+
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-24">
+      <section className="bg-linear-to-r from-blue-600 to-indigo-700 text-white py-24">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
             <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">

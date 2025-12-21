@@ -1,7 +1,7 @@
 import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { FaEye, FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEye, FaEdit, FaTrash, FaCodeBranch, FaGlobe, FaLock } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/store';
 import { hasPermission, PERMISSIONS } from '../config/permissions';
@@ -78,15 +78,28 @@ const SnippetCard = ({ snippet, onDelete }) => {
     <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 flex flex-col">
       <div className="p-4 border-b border-gray-100">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-xl font-bold text-gray-800 truncate pr-2">{snippet.title}</h3>
-          <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded whitespace-nowrap">
-            {snippet.language}
-          </span>
+          <h3 className="text-xl font-bold text-gray-800 truncate pr-2 flex-1">{snippet.title}</h3>
+          <div className="flex items-center gap-2">
+            <span className={`text-xs font-semibold px-2 py-0.5 rounded flex items-center gap-1 ${snippet.isPublic ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
+              {snippet.isPublic ? <FaGlobe size={10} /> : <FaLock size={10} />}
+              {snippet.isPublic ? 'Public' : 'Private'}
+            </span>
+            <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded whitespace-nowrap">
+              {snippet.language}
+            </span>
+          </div>
         </div>
         <p className="text-gray-600 text-sm mb-3 line-clamp-2">{snippet.description}</p>
         <div className="flex flex-wrap gap-2">
           {snippet.tags && snippet.tags.map((tag, index) => (
-            <span key={index} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+            <span 
+              key={index} 
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate(`/tags/${tag}`);
+              }}
+              className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full cursor-pointer hover:bg-blue-100 hover:text-blue-600 transition-colors"
+            >
               #{tag}
             </span>
           ))}
@@ -109,7 +122,7 @@ const SnippetCard = ({ snippet, onDelete }) => {
            <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
              {snippet.createdBy?.userName ? snippet.createdBy.userName[0].toUpperCase() : 'U'}
            </div>
-           <span className="truncate max-w-[100px]">{snippet.createdBy?.userName || 'Unknown User'}</span>
+           <span className="truncate max-w-25">{snippet.createdBy?.userName || 'Unknown User'}</span>
         </div>
         
         <div className="flex items-center gap-3">
@@ -121,6 +134,16 @@ const SnippetCard = ({ snippet, onDelete }) => {
             >
                 <FaEye />
             </button>
+
+            {!canEdit && user && (
+                <button 
+                    onClick={() => navigate('/editor', { state: { initialData: snippet, isFork: true } })}
+                    className="text-gray-500 hover:text-purple-600 transition-colors"
+                    title="Fork Snippet"
+                >
+                    <FaCodeBranch />
+                </button>
+            )}
 
             {canEdit && (
                 <button 

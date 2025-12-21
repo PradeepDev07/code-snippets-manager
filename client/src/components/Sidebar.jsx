@@ -58,7 +58,7 @@ const Sidebar = () => {
         ${isOpen ? 'w-64 translate-x-0' : 'w-64 md:w-20 -translate-x-full md:translate-x-0'}
       `}>
         <div className="p-4 flex items-center justify-between border-b border-gray-800">
-          {isOpen && <h1 className="text-xl font-bold">SnippetManager</h1>}
+          {isOpen && <h1 className="text-xl font-bold"><span className='text-2xl font-extrabold font-mono text-blue-500'>P</span>astebins</h1>}
           <button onClick={toggleSidebar} className="text-gray-400 hover:text-white focus:outline-none">
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import { topProgramming } from '../constants';
@@ -10,7 +10,7 @@ import Cookies from 'js-cookies';
 const CodeEditor = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { initialData, isEdit, isReadOnly } = location.state || {};
+    const { initialData, isEdit, isReadOnly, isFork } = location.state || {};
     
     const [snippet, setSnippet] = useState({
         title: '',
@@ -43,10 +43,18 @@ const CodeEditor = () => {
                 tags: tagsArray
             };
 
+            // If forking, remove _id to ensure a new snippet is created
+            if (isFork) {
+                delete payload._id;
+                delete payload.createdAt;
+                delete payload.updatedAt;
+                delete payload.createdBy;
+            }
+
             let url = `${SERVER_URL}/snippets`;
             let method = 'POST';
 
-            if (isEdit && snippet._id) {
+            if (isEdit && snippet._id && !isFork) {
                 url = `${SERVER_URL}/snippets/${snippet._id}`;
                 method = 'PUT';
             }
@@ -65,7 +73,7 @@ const CodeEditor = () => {
                 throw new Error(errorData.message || 'Failed to save snippet');
             }
 
-            toast.success(`Snippet ${isEdit ? 'updated' : 'saved'} successfully!`);
+            toast.success(`Snippet ${isEdit && !isFork ? 'updated' : 'saved'} successfully!`);
             navigate('/dashboard');
         } catch (error) {
             toast.error(error.message);
@@ -109,7 +117,7 @@ const CodeEditor = () => {
                                 disabled={saving}
                                 className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2 disabled:opacity-50"
                             >
-                                <FaSave /> {saving ? 'Saving...' : (isEdit ? 'Update Snippet' : 'Save Snippet')}
+                                <FaSave /> {saving ? 'Saving...' : (isEdit && !isFork ? 'Update Snippet' : 'Save Snippet')}
                             </button>
                         )}
                     </div>
@@ -142,13 +150,14 @@ const CodeEditor = () => {
                                 <select
                                     value={snippet.language}
                                     onChange={(e) => setSnippet({ ...snippet, language: e.target.value })}
-                                    disabled={isReadOnly}
-                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none disabled:bg-gray-100"
+                                    disabled={isReadOnly || isFork}
+                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                                 >
                                     {topProgramming.map(lang => (
                                         <option key={lang.id} value={lang.id}>{lang.name}</option>
                                     ))}
                                 </select>
+                                {isFork && <p className="text-xs text-gray-500 mt-1">Language cannot be changed for forked snippets.</p>}
                             </div>
 
                             <div>
