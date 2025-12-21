@@ -1,0 +1,26 @@
+{
+  "name": "code_snippet_manager_server",
+  "version": "1.0.0",
+  "description": "this is an server for my personal project where the api call are create to connect the DB to front-end ",
+  "license": "ISC",
+  "author": "Pradeep M",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/server.js",
+    "start": "node ./src/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.0.2",
+    "morgan": "^1.10.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
