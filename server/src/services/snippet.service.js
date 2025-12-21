@@ -1,44 +1,55 @@
 import Snippet from "../models/Snippet.model.js";
 import User from "../models/Users.model.js";
 
-
 export const createSnippet = async (userId, data) => {
   const snippet = await Snippet.create({
     ...data,
-    createdBy: userId
+    createdBy: userId,
   });
-  return snippet;
+  return await snippet.populate("createdBy", "userName profileImage");
 };
 
 export const getUserSnippets = async (userId) => {
-   const snippets = await Snippet.find({ createdBy: userId }).sort;
-   if(!snippets || snippets.length === 0) {
+  const snippets = await Snippet.find({ createdBy: userId })
+    .sort({ createdAt: -1 })
+    .populate("createdBy", "userName profileImage");
+  if (!snippets || snippets.length === 0) {
     throw new Error("No snippets found");
-   }
-   return snippets;
+  }
+  return snippets;
 };
 
-
 export const getPublicSnippetsDB = async () => {
-  const snippets = await Snippet.find({ isPublic: true }).populate("createdBy", "userName profileImage");
+  const snippets = await Snippet.find({ isPublic: true }).populate(
+    "createdBy",
+    "userName profileImage"
+  );
   return snippets;
 };
 
 export const getLimitedPublicSnippets = async () => {
-  const snippets = await Snippet.find({ isPublic: true }).limit(10).sort({ createdAt: -1 }).populate("createdBy", "userName profileImage");
+  const snippets = await Snippet.find({ isPublic: true })
+    .limit(10)
+    .sort({ createdAt: -1 })
+    .populate("createdBy", "userName profileImage");
   return snippets;
 };
 
 export const getSnippetsByTag = async (tag) => {
-  const snippets = await Snippet.find({ tags: tag, isPublic: true }).populate("createdBy", "userName profileImage");
-  if(!snippets || snippets.length === 0) {
+  const snippets = await Snippet.find({ tags: tag, isPublic: true }).populate(
+    "createdBy",
+    "userName profileImage"
+  );
+  if (!snippets || snippets.length === 0) {
     throw new Error("No snippets found with the specified tag");
-   }
+  }
   return snippets;
 };
 
 export const updateSnippet = async (id, data) => {
-  const snippet = await Snippet.findByIdAndUpdate(id, data, { new: true });
+  const snippet = await Snippet.findByIdAndUpdate(id, data, {
+    new: true,
+  }).populate("createdBy", "userName profileImage");
   if (!snippet) {
     throw new Error("Snippet not found");
   }
@@ -61,44 +72,26 @@ export const searchSnippets = async ({ language, tag, userName }) => {
   }
 
   if (tag) {
-    query.tags = tag;
+    query.tags = { $regex: new RegExp(`^${tag}`, "i") };
   }
 
   if (userName) {
-    const user = await User.findOne({ userName });
-    if (user) {
-      query.createdBy = user._id;
+    const users = await User.find({
+      userName: { $regex: new RegExp(`^${userName}`, "i") },
+    });
+    if (users.length > 0) {
+      query.createdBy = { $in: users.map((user) => user._id) };
     } else {
       return []; // User not found, so no snippets
     }
   }
 
-  const snippets = await Snippet.find(query).populate("createdBy", "userName profileImage");
+  const snippets = await Snippet.find(query).populate(
+    "createdBy",
+    "userName profileImage"
+  );
   return snippets;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // export const getUserByUsername = async (username) => {
 //    const user = await User.findOne({ username });

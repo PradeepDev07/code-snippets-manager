@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import Cookies from 'js-cookies';
 import { SERVER_URL } from '../config';
 import Navbar from '../components/Navbar';
+import { useAuth } from '../context/store';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ const LoginForm = () => {
     password: ''
   });
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     setFormData({
@@ -37,9 +38,7 @@ const LoginForm = () => {
         throw new Error(data.message || 'Login failed');
       }
 
-      // Save token to cookies
-      Cookies.setItem('token', data.token, { expires: 7 }); // Expires in 7 days
-      localStorage.setItem('user', JSON.stringify(data.user));
+      login(data.user, data.token);
       
       toast.success('Login successful!');
       navigate('/dashboard'); // Redirect to dashboard

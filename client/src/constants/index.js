@@ -10,6 +10,7 @@ import {
 import { SiSqlite } from "react-icons/si";
 
  export const topProgramming = [
+  {id: "", name: "All Languages", color: "#6B7280" },
   { id: "javascript", name: "JavaScript", icon: FaJs , color: "#F7DF1E" },
   { id: "python", name: "Python", icon: FaPython, color: "#3776AB" },
   { id: "java", name: "Java", icon: FaJava  , color: "#007396" },
