@@ -1,4 +1,3 @@
-import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { FaEye, FaEdit, FaTrash, FaCodeBranch, FaGlobe, FaLock } from 'react-icons/fa';
@@ -13,8 +12,6 @@ const SnippetCard = ({ snippet, onDelete }) => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  // Check permissions
-  // Note: snippet.createdBy might be an object (populated) or an ID string.
   const ownerId = snippet.createdBy?._id || snippet.createdBy;
   
   const canEdit = hasPermission(user, PERMISSIONS.UPDATE_SNIPPET, ownerId);

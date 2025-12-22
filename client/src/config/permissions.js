@@ -32,13 +32,7 @@ export const ROLE_PERMISSIONS = {
   ],
 };
 
-/**
- * Check if a user has permission to perform an action.
- * @param {Object} user - The user object containing a role.
- * @param {String} permission - The permission to check (e.g., 'update:snippet').
- * @param {String} resourceOwnerId - (Optional) The ID of the user who owns the resource.
- * @returns {Boolean}
- */
+
 export const hasPermission = (user, permission, resourceOwnerId = null) => {
   if (!user || !user.role) return false;
 

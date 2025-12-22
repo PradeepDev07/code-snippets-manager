@@ -33,7 +33,7 @@ const CodeEditor = () => {
         try {
             const token = Cookies.getItem('token');
 
-            // Format tags
+
             const tagsArray = typeof snippet.tags === 'string'
                 ? snippet.tags.split(',').map(t => t.trim()).filter(t => t)
                 : snippet.tags;
@@ -43,7 +43,7 @@ const CodeEditor = () => {
                 tags: tagsArray
             };
 
-            // If forking, remove _id to ensure a new snippet is created
+
             if (isFork) {
                 delete payload._id;
                 delete payload.createdAt;

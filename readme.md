@@ -1,6 +1,9 @@
 # Code Snippet Manager
 
 A full-stack web application for developers to store, organize, and share code snippets. Built with the MERN stack (MongoDB, Express, React, Node.js).
+## AI used areas 
+-  test-*.js
+-  readme.md
 
 ## Features
 

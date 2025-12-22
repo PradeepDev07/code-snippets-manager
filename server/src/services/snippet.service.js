@@ -93,10 +93,3 @@ export const searchSnippets = async ({ language, tag, userName }) => {
   return snippets;
 };
 
-// export const getUserByUsername = async (username) => {
-//    const user = await User.findOne({ username });
-//   if (!user) {
-//     throw new Error("User not found");
-//   }
-//   return user;
-// };
