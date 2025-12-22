@@ -9,7 +9,7 @@ import errorHandler from "./middleware/error.middleware.js";
 const app = express();
 
 app.use(cors(
-    {origin: '*', // add your client URL here or use '*' for all origins
+    {origin: 'https://code-snippets-manager-weld.vercel.app', // add your client URL here or use '*' for all origins
     credentials: true}
 ));
 app.use(express.json());// to parse JSON request bodies
