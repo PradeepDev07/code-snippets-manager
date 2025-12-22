@@ -4,6 +4,7 @@ A full-stack web application for developers to store, organize, and share code s
 ## AI used areas 
 -  test-*.js
 -  readme.md
+-  testing js files 
 
 ## Features
 
@@ -87,3 +88,6 @@ Follow these instructions to set up the project locally on your machine.
 1.  Open your browser and go to the client URL.
 2.  Sign up for a new account.
 3.  Go to your Dashboard to create your first snippet!
+
+## Deployed
+vercel : https://code-snippets-manager-weld.vercel.app/
