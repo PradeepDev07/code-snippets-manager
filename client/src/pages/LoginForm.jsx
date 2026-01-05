@@ -10,6 +10,7 @@ const LoginForm = () => {
     email: 'guest@gmail.com',
     password: '123'
   });
+  const [isLoading , setIsLoading] = useState(false)
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -22,6 +23,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true)
     
     try {
       const response = await fetch(`${SERVER_URL}/auth/login`, {
@@ -40,7 +42,9 @@ const LoginForm = () => {
 
       login(data.user, data.token);
       
+      
       toast.success('Login successful!');
+      setIsLoading(false)
       navigate('/dashboard'); // Redirect to dashboard
     } catch (err) {
       toast.error(err.message);
@@ -103,6 +107,7 @@ const LoginForm = () => {
               <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+                disable = {isLoading ? "true" : "false"}
               >
                 Sign in
               </button>
