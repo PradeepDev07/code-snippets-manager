@@ -7,8 +7,8 @@ import { useAuth } from '../context/store';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: 'guest@gmail.com',
+    password: '123'
   });
   const navigate = useNavigate();
   const { login } = useAuth();
