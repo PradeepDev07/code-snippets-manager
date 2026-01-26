@@ -1,93 +1,65 @@
 # Code Snippet Manager
 
-A full-stack web application for developers to store, organize, and share code snippets. Built with the MERN stack (MongoDB, Express, React, Node.js).
-## AI used areas 
--  test-*.js
--  readme.md
--  testing js files 
+A full-stack web application to securely store, organize, and share code snippets.
 
-## Features
+---
 
--   **User Authentication:** Secure Login and Signup using JWT.
--   **Snippet Management:** Create, Read, Update, and Delete (CRUD) your code snippets.
--   **Syntax Highlighting:** Beautiful code display supporting multiple languages.
--   **Search & Explore:** Find snippets by language, tags, or username.
--   **Public & Private:** Choose to share your snippets with the world or keep them private.
--   **Forking:** Fork snippets from other users to make your own modifications.
--   **Tag System:** Organize snippets with tags and browse by clicking on them.
--   **Responsive Design:** Works seamlessly on desktop and mobile devices.
+## 📌 Overview
+Code Snippet Manager is a developer-focused application that allows users to:
+- Securely sign up and log in  
+- Create, manage, and organize personal code snippets  
+- Explore public snippets  
+- Fork snippets for reuse  
 
-## Tech Stack
+This project was built to demonstrate end-to-end **MERN stack** development skills including authentication, API design, and frontend architecture.
 
--   **Frontend:** React (Vite), Tailwind CSS, React Router, React Hot Toast.
--   **Backend:** Node.js, Express.js.
--   **Database:** MongoDB (with Mongoose).
--   **Authentication:** JSON Web Tokens (JWT) & Cookies.
+---
 
-## Getting Started
+## 🚀 Live Demo
+👉 https://code-snippets-manager-weld.vercel.app
 
-Follow these instructions to set up the project locally on your machine.
+---
 
-### Prerequisites
+## 🛠️ Tech Stack
 
--   [Node.js](https://nodejs.org/) (v14+ recommended)
--   [MongoDB](https://www.mongodb.com/) (Local instance or Atlas URI)
--   [Git](https://git-scm.com/)
+**Frontend**
+- React.js  
+- Tailwind CSS  
+- React Router  
 
-### Installation
+**Backend**
+- Node.js  
+- Express.js  
 
-1.  **Clone the repository:**
+**Database**
+- MongoDB (Mongoose)  
 
-    ```bash
-    git clone <repository-url>
-    cd code_snippet_manager
-    ```
+**Authentication**
+- JWT (JSON Web Token)  
+- HTTP-Only Cookies  
 
-2.  **Setup the Backend (Server):**
+**Deployment**
+- Vercel (Frontend)  
+- *(Add backend hosting when deployed)*  
 
-    Navigate to the server directory and install dependencies:
+---
 
-    ```bash
-    cd server
-    npm install
-    ```
+## 📋 Features
+- Secure signup and login using JWT authentication  
+- Create, read, update, and delete (CRUD) code snippets  
+- Ownership-based authorization for data protection  
+- Public and private snippet visibility  
+- Tag-based filtering and search functionality  
+- Responsive UI for mobile and desktop  
 
-    Create a `.env` file in the `server` directory with the following variables:
+---
 
-    ```env
-    PORT=3001
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_super_secret_key
-    ```
+## 📷 Screenshots
+*(Add screenshots or GIFs here to showcase the UI and features)*  
+![Home Page]<img width="1674" height="946" alt="Screenshot 2026-01-26 at 9 51 30 PM" src="https://github.com/user-attachments/assets/12143266-3776-465c-9d1f-58ce9c48c65d" />
 
-    Start the server:
 
-    ```bash
-    npm run dev
-    ```
-    The server should be running on `http://localhost:3001`.
-
-3.  **Setup the Frontend (Client):**
-
-    Open a new terminal, navigate to the client directory, and install dependencies:
-
-    ```bash
-    cd client
-    npm install
-    ```
-
-    Start the client development server:
-
-    ```bash
-    npm run dev
-    ```
-    The application should now be accessible at `http://localhost:5173` (or the port shown in your terminal).
-
-## Usage
-
-1.  Open your browser and go to the client URL.
-2.  Sign up for a new account.
-3.  Go to your Dashboard to create your first snippet!
-
-## Deployed
-vercel : https://code-snippets-manager-weld.vercel.app/
+Example:
+```md
+![Home Page](./screenshots/home.png)
+![Dashboard](./screenshots/dashboard.png)
