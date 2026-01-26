@@ -73,12 +73,91 @@ This project was built to demonstrate end-to-end **MERN stack** development skil
 ##Editor
 <img width="1675" height="980" alt="Screenshot 2026-01-26 at 9 52 30 PM" src="https://github.com/user-attachments/assets/fe4fead7-668e-4bb2-843e-8807c1427883" />
 
+📦 Installation (Local Setup)
+
+Clone the repository:
+
+git clone https://github.com/PradeepDev07/code-snippets-manager.git
+cd code-snippets-manager
+
+
+Install backend dependencies:
+
+cd server
+npm install
+
+
+Install frontend dependencies:
+
+cd ../client
+npm install
+
+
+Run the project:
+
+# Run backend
+cd server
+npm run dev
+
+# Run frontend
+cd ../client
+npm start
+
+💡 What I Learned
+
+Implemented secure authentication using JWT and HTTP-only cookies
+
+Designed and developed RESTful APIs using Express.js
+
+Built reusable React components and managed routing effectively
+
+Improved UI/UX using Tailwind CSS
+
+Understood full-stack application flow
+
+🧠 Future Improvements
+
+Add comments and likes on snippets
+
+Deploy backend to production
+
+Add unit and integration tests using Jest / Supertest
+
+Improve performance and error handling
+
+👤 Author
+
+Pradeep M
+
+GitHub: https://github.com/PradeepDev07
+
+LinkedIn: https://linkedin.com/in/pradeep-m07
+
+⭐ If you like this project, consider giving it a star!
+
+
+---
+
+## ✅ Why this helps you
+Now your project looks:
+- Professional  
+- Recruiter-friendly  
+- Easy to understand  
+- Easy to run locally  
+- Like real-world engineering work  
+
+This alone can significantly improve your shortlisting rate.
+
+---
+
+## 🔥 Next step (important)
+If you want, next I can help you with:
+👉 Improving your **project architecture / code quality**  
+👉 Improving **GitHub profile (bio, pinned repos, profile README)**  
+👉 Making your project more “interview impressive”
+
+Just tell me:  
+**“Review my code structure next”**
 
 
 
-
-
-Example:
-```md
-![Home Page](./screenshots/home.png)
-![Dashboard](./screenshots/dashboard.png)
