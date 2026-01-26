@@ -55,17 +55,22 @@ This project was built to demonstrate end-to-end **MERN stack** development skil
 ---
 
 ## 📷 Screenshots
-#Home
+##Home
 <img width="1674" height="946" alt="Screenshot 2026-01-26 at 9 51 30 PM" src="https://github.com/user-attachments/assets/12143266-3776-465c-9d1f-58ce9c48c65d" />
-#Explore Snippets (Preview)
+
+##Explore Snippets (Preview)
 <img width="1671" height="983" alt="Screenshot 2026-01-26 at 9 51 40 PM" src="https://github.com/user-attachments/assets/b3f90b31-a907-4262-b972-2a0e9ebcc8e4" />
-#LogIn
+
+##LogIn
 <img width="1677" height="960" alt="Screenshot 2026-01-26 at 9 51 52 PM" src="https://github.com/user-attachments/assets/b1702c87-318b-4963-a7b1-bf7e345e7f45" />
-#Dashboard
+
+##Dashboard
 <img width="1669" height="978" alt="Screenshot 2026-01-26 at 9 52 05 PM" src="https://github.com/user-attachments/assets/bd3e054f-dcc9-487e-a721-52cd6672b5f6" />
-#Explore Snippets 
+
+##Explore Snippets 
 <img width="1673" height="987" alt="Screenshot 2026-01-26 at 9 52 13 PM" src="https://github.com/user-attachments/assets/c5fb4e52-f544-4f66-92fb-90be3f2be6e8" />
-#Editor
+
+##Editor
 <img width="1675" height="980" alt="Screenshot 2026-01-26 at 9 52 30 PM" src="https://github.com/user-attachments/assets/fe4fead7-668e-4bb2-843e-8807c1427883" />
 
 
